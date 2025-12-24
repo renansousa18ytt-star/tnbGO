@@ -1,0 +1,2911 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tnb GO - Streaming Grátis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0e17;
+            color: #ffffff;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 3px;
+        }
+        .program-item {
+            transition: all 0.3s ease;
+        }
+        .program-item:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+        .live-indicator {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+        .program-card {
+            min-width: 200px;
+            max-width: 200px;
+        }
+        .program-card-live {
+            border: 2px solid #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="min-h-full flex flex-col"><!-- Header/Navbar -->
+   <header class="bg-gray-900 shadow-lg">
+    <div class="container mx-auto px-4 py-3">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center">
+       <div class="text-2xl font-bold text-blue-500"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+      </div>
+      <nav class="hidden md:flex space-x-8"><a href="#home" class="nav-item active text-white hover:text-blue-400 transition">Início</a> <a href="#live" class="nav-item text-white hover:text-blue-400 transition">Ao Vivo</a> <a href="#schedule" class="nav-item text-white hover:text-blue-400 transition">Programação</a> <a href="#shows" class="nav-item text-white hover:text-blue-400 transition">Programas</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+       <div class="relative"><input type="text" placeholder="Buscar..." class="bg-gray-800 text-white px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-3 top-2.5 text-gray-400" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+       </div><button class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg></button>
+      </div>
+     </div>
+    </div>
+   </header><!-- Main Content -->
+   <main class="flex-grow"><!-- Hero Section -->
+    <section id="home" class="relative">
+     <div class="gradient-bg py-16 md:py-24">
+      <div class="container mx-auto px-4">
+       <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+         <h1 class="text-4xl md:text-5xl font-bold mb-4">tnb GO ao vivo e de graça</h1>
+         <p class="text-lg mb-6">Assista à programação completa do tnb GO em streaming, sem custo algum e em qualquer dispositivo.</p>
+         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir Agora </button> <button class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+           </svg> Ver Programação </button>
+         </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+         <div class="relative w-full max-w-md">
+          <div class="bg-black rounded-lg overflow-hidden shadow-2xl">
+           <div class="aspect-w-16 aspect-h-9 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-80"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-80" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+             </svg>
+            </div>
+            <div class="absolute top-4 left-4 flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+             <h3 class="text-xl font-bold">tnb Notícias</h3>
+             <p class="text-sm text-gray-300">Transmitindo agora</p>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- TV ao Vivo Section -->
+    <section id="live" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">tnb GO ao Vivo</h2>
+       <div class="flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator mr-2"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span> <span id="liveStatus" class="text-gray-400 text-sm">Carregando...</span>
+       </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+       <div class="relative bg-black" style="padding-bottom: 56.25%; position: relative; width: 100%;">
+        <div class="absolute inset-0 flex items-center justify-center">
+         <div class="text-center">
+          <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">Clique para assistir ao vivo</h3>
+          <p class="text-gray-400 mt-2">Transmissão em alta definição</p>
+         </div>
+        </div>
+        <div class="absolute top-4 left-4 flex items-center">
+         <div class="bg-blue-600 text-white px-3 py-1 rounded-lg flex items-center"><span class="font-bold mr-1">tnb GO</span> <span class="w-2 h-2 bg-red-500 rounded-full live-indicator"></span>
+         </div>
+        </div>
+       </div>
+       <div class="p-4 bg-gray-800 border-t border-gray-700">
+        <div class="flex flex-col md:flex-row md:items-center justify-between">
+         <div id="liveInfo">
+          <h3 class="text-xl font-bold">Carregando...</h3>
+          <p class="text-gray-400 text-sm">Atualizando programação ao vivo</p>
+         </div>
+         <div class="flex space-x-3 mt-4 md:mt-0"><button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir </button> <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+           </svg> Compartilhar </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Programação -->
+    <section id="schedule" class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">Programação da Semana</h2>
+      <div class="bg-gray-900 rounded-lg p-4 overflow-hidden">
+       <div class="flex items-center justify-between mb-4 border-b border-gray-700 pb-4">
+        <div class="flex items-center">
+         <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3"><span class="font-bold text-sm">GO</span>
+         </div>
+         <div>
+          <h3 class="font-semibold">tnb GO</h3>
+          <p class="text-xs text-gray-400">Canal Nacional</p>
+         </div>
+        </div>
+        <div class="text-right"><select id="daySelector" class="bg-gray-800 text-white px-3 py-1 rounded text-sm border border-gray-600 focus:outline-none focus:border-blue-500"> <option value="monday">Segunda-feira</option> <option value="tuesday">Terça-feira</option> <option value="wednesday">Quarta-feira</option> <option value="thursday" selected>Quinta-feira</option> <option value="friday">Sexta-feira</option> <option value="saturday">Sábado</option> <option value="sunday">Domingo</option> </select>
+        </div>
+       </div>
+       <div id="scheduleContainer" class="space-y-2 custom-scrollbar overflow-y-auto max-h-96"></div>
+      </div>
+     </div>
+    </section><!-- Programas em Destaque -->
+    <section id="shows" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Programas em Destaque</h2><a href="#" class="text-blue-400 hover:text-blue-300 text-sm flex items-center"> Ver todos 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg></a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-900 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="newsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#newsGrad)" /> <circle cx="200" cy="150" r="80" fill="#1e3a8a" opacity="0.3" /> <rect x="120" y="180" width="160" height="60" rx="5" fill="#1e3a8a" /> <text x="200" y="215" font-family="Arial" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+           tnb
+          </text> <rect x="150" y="100" width="100" height="60" rx="8" fill="#3b82f6" /> <circle cx="180" cy="125" r="12" fill="white" /> <rect x="200" y="118" width="35" height="14" rx="2" fill="white" />
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">tnb Notícias</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-blue-600 text-white px-2 py-0.5 rounded mr-2">Jornalismo</span> <span class="text-xs text-gray-400">Todos os dias</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Informação completa e atualizada sobre os principais acontecimentos do Brasil e do mundo.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-purple-600 to-pink-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="novelaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#novelaGrad)" /> <path d="M 80 250 Q 120 150, 160 250" stroke="#a855f7" stroke-width="3" fill="none" opacity="0.4" /> <path d="M 240 250 Q 280 150, 320 250" stroke="#ec4899" stroke-width="3" fill="none" opacity="0.4" /> <circle cx="120" cy="100" r="40" fill="#fff" opacity="0.2" /> <circle cx="280" cy="120" r="50" fill="#fff" opacity="0.15" /> <path d="M 150 180 L 200 140 L 250 180 L 200 220 Z" fill="#fff" opacity="0.3" /> <text x="200" y="280" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8">
+           ♥
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Laços Quebrados</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-purple-600 text-white px-2 py-0.5 rounded mr-2">Novela</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Drama emocionante sobre família, amor e superação na busca pela felicidade.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-yellow-600 to-orange-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="showGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#d97706;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#showGrad)" /> <circle cx="100" cy="80" r="15" fill="#fef3c7" /> <circle cx="150" cy="60" r="20" fill="#fef3c7" /> <circle cx="200" cy="50" r="25" fill="#fef3c7" /> <circle cx="250" cy="60" r="20" fill="#fef3c7" /> <circle cx="300" cy="80" r="15" fill="#fef3c7" /> <polygon points="200,120 220,170 270,180 235,215 245,265 200,240 155,265 165,215 130,180 180,170" fill="#fbbf24" /> <text x="200" y="210" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+           ★
+          </text>
+         </svg>
+         <div class="absolute top-2 right-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded">
+          ESTREIA
+         </div>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Show De Prêmios tnb</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-yellow-600 text-white px-2 py-0.5 rounded mr-2">Auditório</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Programa de auditório com prêmios incríveis e muita diversão para toda a família.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-green-600 to-teal-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="varGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#varGrad)" /> <circle cx="120" cy="120" r="40" fill="#10b981" opacity="0.4" /> <circle cx="280" cy="160" r="50" fill="#14b8a6" opacity="0.4" /> <path d="M 150 200 L 180 170 L 210 200 L 240 170 L 270 200" stroke="#fff" stroke-width="4" fill="none" opacity="0.6" /> <rect x="160" y="100" width="80" height="60" rx="10" fill="#fff" opacity="0.3" /> <circle cx="200" cy="250" r="30" fill="#34d399" /> <text x="200" y="265" font-family="Arial" font-size="36" font-weight="bold" fill="white" text-anchor="middle">
+           ✓
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Facilita</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-green-600 text-white px-2 py-0.5 rounded mr-2">Variedades</span> <span class="text-xs text-gray-400">Matinais</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Dicas práticas, receitas e informações úteis para facilitar seu dia a dia.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Visualização - Estilo Oi TV -->
+    <section class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Grade de Programação - Estilo Oi TV</h2>
+       <div class="flex space-x-2"><button id="gridViewBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-blue-700"> Grade Horizontal </button> <button id="listViewBtn" class="bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-gray-600"> Lista Vertical </button>
+       </div>
+      </div><!-- Grid View - Oi TV Style -->
+      <div id="gridView" class="bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center"><span class="font-bold text-lg">GO</span>
+          </div>
+          <div>
+           <h3 class="font-bold text-lg">tnb GO</h3>
+           <p class="text-xs text-gray-400">Canal 100 • HD</p>
+          </div>
+         </div>
+         <div class="text-right">
+          <p class="text-sm text-gray-400">Agora</p>
+          <p id="currentTimeGrid" class="font-bold text-lg">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div class="overflow-x-auto custom-scrollbar">
+        <div id="horizontalSchedule" class="flex p-4 space-x-3" style="min-width: max-content;"></div>
+       </div>
+      </div><!-- List View - Traditional Style (hidden by default) -->
+      <div id="listView" class="hidden bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <h3 class="font-bold text-lg">Programação Completa - tnb GO</h3>
+         <div class="text-right">
+          <p id="currentTimeList" class="font-bold">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div id="verticalSchedule" class="p-4 space-y-2 max-h-96 overflow-y-auto custom-scrollbar"></div>
+      </div>
+     </div>
+    </section><!-- App Download Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-indigo-900">
+     <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+       <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-bold mb-4">Baixe o aplicativo tnb GO</h2>
+        <p class="text-lg mb-6 text-gray-300">Assista à programação completa do tnb GO onde e quando quiser. Disponível para todos os dispositivos.</p>
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M17.707,9.293l-5-5C12.52,4.105,12.266,4,12,4s-0.52,0.105-0.707,0.293l-5,5C5.105,9.48,5,9.734,5,10 s0.105,0.52,0.293,0.707C5.48,10.895,5.734,11,6,11s0.52-0.105,0.707-0.293L11,6.414V20c0,0.552,0.448,1,1,1s1-0.448,1-1V6.414 l4.293,4.293C17.48,10.895,17.734,11,18,11s0.52-0.105,0.707-0.293C18.895,10.52,19,10.266,19,10S18.895,9.48,17.707,9.293z" />
+          </svg> App Store </button> <button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M3,20.5V3.5C3,2.67,3.67,2,4.5,2h15C20.33,2,21,2.67,21,3.5v17c0,0.83-0.67,1.5-1.5,1.5h-15C3.67,22,3,21.33,3,20.5z M12,17 c2.76,0,5-2.24,5-5s-2.24-5-5-5s-5,2.24-5,5S9.24,17,12,17z" />
+          </svg> Google Play </button>
+        </div>
+       </div>
+       <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+         <div class="w-64 h-96 bg-black rounded-3xl border-8 border-gray-800 shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-900 opacity-90"></div>
+          <div class="absolute inset-0 flex flex-col p-4">
+           <div class="flex justify-between items-center mb-8">
+            <div class="text-lg font-bold text-white">
+             tnb GO
+            </div>
+            <div class="text-sm text-white">
+             19:45
+            </div>
+           </div>
+           <div class="flex-grow flex flex-col space-y-3">
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-24 flex items-center justify-center">
+             <div class="text-center">
+              <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-1"><span class="text-xs font-bold">AO</span>
+              </div>
+              <p class="text-xs">VIVO</p>
+             </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+            </div>
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-16"></div>
+           </div>
+           <div class="flex justify-around pt-4">
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-gray-900 py-10">
+    <div class="container mx-auto px-4">
+     <div class="flex flex-col md:flex-row justify-between">
+      <div class="mb-6 md:mb-0">
+       <div class="text-2xl font-bold text-blue-500 mb-4"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+       <p class="text-gray-400 max-w-md">Seu canal de notícias, entretenimento e informação. Assista à programação completa do tnb GO gratuitamente.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+       <div>
+        <h3 class="text-white font-semibold mb-4">Navegação</h3>
+        <ul class="space-y-2">
+         <li><a href="#home" class="text-gray-400 hover:text-blue-400 transition">Início</a></li>
+         <li><a href="#live" class="text-gray-400 hover:text-blue-400 transition">Ao Vivo</a></li>
+         <li><a href="#schedule" class="text-gray-400 hover:text-blue-400 transition">Programação</a></li>
+         <li><a href="#shows" class="text-gray-400 hover:text-blue-400 transition">Programas</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Suporte</h3>
+        <ul class="space-y-2">
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Ajuda</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">FAQ</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Contato</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Termos de Uso</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Redes Sociais</h3>
+        <div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299 c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2,22,4.6,22,7.8V16.2C22,19.4,19.4,22,16.2,22H7.8C4.6,22,2,19.4,2,16.2V7.8C2,4.6,4.6,2,7.8,2M7.6,4C5.61,4,4,5.61,4,7.6V16.4C4,18.39,5.61,20,7.6,20H16.4C18.39,20,20,18.39,20,16.4V7.6C20,5.61,18.39,4,16.4,4H7.6M17.25,5.5C17.94,5.5,18.5,6.06,18.5,6.75C18.5,7.44,17.94,8,17.25,8C16.56,8,16,7.44,16,6.75C16,6.06,16.56,5.5,17.25,5.5M12,7C14.76,7,17,9.24,17,12C17,14.76,14.76,17,12,17C9.24,17,7,14.76,7,12C7,9.24,9.24,7,12,7M12,9C10.34,9,9,10.34,9,12C9,13.66,10.34,15,12,15C13.66,15,15,13.66,15,12C15,10.34,13.66,9,12,9z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+          </svg></a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 text-sm">© 2025 tnb GO. Todos os direitos reservados.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Privacidade</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Termos</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Cookies</a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // Complete programming schedule data
+        const scheduleData = {
+            monday: [
+                { time: '00:00', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            tuesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            wednesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            thursday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            friday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            saturday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:10', title: 'Madrugada Série', category: 'Série', color: 'purple' },
+                { time: '03:10', title: 'tnb Investigação', category: 'Documentário', color: 'gray' },
+                { time: '04:30', title: 'Novo Dia News (Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '06:30', title: 'Em Notícias (Edição De Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '07:50', title: 'tnb Kids', category: 'Infantil', color: 'teal' },
+                { time: '09:35', title: 'Sábado Play', category: 'Variedades', color: 'green' },
+                { time: '11:10', title: 'tnb Esportes', category: 'Esportes', color: 'yellow' },
+                { time: '12:45', title: 'Sessão Família', category: 'Filme', color: 'red' },
+                { time: '14:55', title: 'Tarde No Capricho', category: 'Variedades', color: 'green' },
+                { time: '17:20', title: 'Smallville', category: 'Série', color: 'purple' },
+                { time: '18:30', title: 'Happy Hour', category: 'Talk Show', color: 'orange' },
+                { time: '19:15', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:50', title: 'Agora Vai', category: 'Auditório', color: 'yellow' },
+                { time: '22:15', title: 'É Nois', category: 'Entretenimento', color: 'indigo' }
+            ],
+            sunday: [
+                { time: '00:00', title: 'É Nois', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:30', title: 'tnb Docs', category: 'Documentário', color: 'gray' },
+                { time: '02:10', title: 'tnb Informa (Edição De Domingo)', category: 'Jornalismo', color: 'blue' },
+                { time: '04:00', title: 'Novo Dia News', category: 'Jornalismo', color: 'blue' },
+                { time: '06:45', title: 'Agro tnb', category: 'Rural', color: 'green' },
+                { time: '08:05', title: 'O Melhor Do Mundo', category: 'Variedades', color: 'green' },
+                { time: '09:50', title: 'Esporte tnb', category: 'Esportes', color: 'yellow' },
+                { time: '11:35', title: 'Programa Do Edu', category: 'Auditório', color: 'yellow' },
+                { time: '15:30', title: 'Beleza De Domingo', category: 'Variedades', color: 'green' },
+                { time: '17:05', title: 'Cake Boss', category: 'Reality', color: 'orange' },
+                { time: '19:10', title: 'É Show!', category: 'Entretenimento', color: 'indigo' },
+                { time: '22:50', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' }
+            ]
+        };
+
+        // Function to get current live program
+        function getCurrentProgram() {
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            const todaySchedule = scheduleData[currentDay];
+            
+            let currentProgram = null;
+            for (let i = 0; i < todaySchedule.length; i++) {
+                const [hours, minutes] = todaySchedule[i].time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                const nextProgramTime = i < todaySchedule.length - 1 
+                    ? todaySchedule[i + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    if (currentTime >= programTime && currentTime < nextTime) {
+                        currentProgram = todaySchedule[i];
+                        break;
+                    }
+                } else {
+                    if (currentTime >= programTime) {
+                        currentProgram = todaySchedule[i];
+                    }
+                }
+            }
+            
+            if (!currentProgram) {
+                currentProgram = todaySchedule[0];
+            }
+            
+            return currentProgram;
+        }
+
+        // Function to render schedule with live indicator
+        function renderSchedule(day) {
+            const container = document.getElementById('scheduleContainer');
+            const schedule = scheduleData[day];
+            
+            if (!schedule) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-8">Programação não disponível</p>';
+                return;
+            }
+            
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                if (day === currentDay) {
+                    const nextProgramTime = index < schedule.length - 1 
+                        ? schedule[index + 1].time.split(':').map(Number)
+                        : null;
+                    
+                    if (nextProgramTime) {
+                        const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                        isLive = currentTime >= programTime && currentTime < nextTime;
+                    } else {
+                        isLive = currentTime >= programTime;
+                    }
+                }
+                
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30' : ''}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-2 py-1 rounded flex items-center"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize with current day
+        const now = new Date();
+        const dayIndex = now.getDay();
+        const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        const currentDay = dayNames[dayIndex];
+        
+        document.getElementById('daySelector').value = currentDay;
+        renderSchedule(currentDay);
+
+        // Function to update live program info
+        function updateLiveInfo() {
+            const currentProgram = getCurrentProgram();
+            const liveInfoDiv = document.getElementById('liveInfo');
+            const liveStatusSpan = document.getElementById('liveStatus');
+            
+            if (liveInfoDiv && currentProgram) {
+                const now = new Date();
+                const dayIndex = now.getDay();
+                const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                const currentDayName = dayNames[dayIndex];
+                const todaySchedule = scheduleData[currentDayName];
+                const currentIndex = todaySchedule.findIndex(p => p.title === currentProgram.title);
+                const nextProgram = currentIndex < todaySchedule.length - 1 ? todaySchedule[currentIndex + 1] : null;
+                
+                const endTime = nextProgram ? nextProgram.time : '00:00';
+                
+                liveInfoDiv.innerHTML = `
+                    <h3 class="text-xl font-bold">${currentProgram.title}</h3>
+                    <p class="text-gray-400 text-sm">${currentProgram.time} - ${endTime} | ${currentProgram.category}</p>
+                `;
+            }
+            
+            if (liveStatusSpan && currentProgram) {
+                liveStatusSpan.textContent = `Agora: ${currentProgram.title}`;
+            }
+        }
+
+        // Function to update current time display
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            const gridTimeEl = document.getElementById('currentTimeGrid');
+            const listTimeEl = document.getElementById('currentTimeList');
+            
+            if (gridTimeEl) gridTimeEl.textContent = timeString;
+            if (listTimeEl) listTimeEl.textContent = timeString;
+        }
+
+        // Function to render horizontal schedule (Oi TV style)
+        function renderHorizontalSchedule() {
+            const container = document.getElementById('horizontalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                const gradients = {
+                    blue: 'from-blue-700 to-blue-900',
+                    purple: 'from-purple-700 to-purple-900',
+                    pink: 'from-pink-700 to-pink-900',
+                    yellow: 'from-yellow-600 to-orange-700',
+                    green: 'from-green-700 to-green-900',
+                    gray: 'from-gray-700 to-gray-900',
+                    orange: 'from-orange-700 to-orange-900',
+                    indigo: 'from-indigo-700 to-indigo-900',
+                    teal: 'from-teal-700 to-teal-900',
+                    red: 'from-red-700 to-red-900'
+                };
+
+                return `
+                    <div class="program-card bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 ${isLive ? 'program-card-live' : ''}">
+                        <div class="h-28 bg-gradient-to-br ${gradients[program.color] || 'from-gray-700 to-gray-900'} flex items-center justify-center p-3 relative">
+                            ${isLive ? `
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator">
+                                        <span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>
+                                        AO VIVO
+                                    </span>
+                                </div>
+                            ` : ''}
+                            <div class="text-center">
+                                <p class="text-3xl mb-1">📺</p>
+                                <p class="text-xs text-gray-300">${program.category}</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-xs text-blue-400 font-semibold mb-1">${program.time}</p>
+                            <h4 class="font-semibold text-sm leading-tight mb-2 line-clamp-2">${program.title}</h4>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs py-1.5 rounded transition">
+                                ${isLive ? 'Assistir Agora' : 'Ver Detalhes'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to render vertical schedule (traditional style)
+        function renderVerticalSchedule() {
+            const container = document.getElementById('verticalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30 border-l-4 border-red-600' : 'bg-gray-800'}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full flex items-center live-indicator"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // View toggle functionality
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+
+        gridViewBtn.addEventListener('click', () => {
+            gridView.classList.remove('hidden');
+            listView.classList.add('hidden');
+            gridViewBtn.classList.remove('bg-gray-700');
+            gridViewBtn.classList.add('bg-blue-600');
+            listViewBtn.classList.remove('bg-blue-600');
+            listViewBtn.classList.add('bg-gray-700');
+        });
+
+        listViewBtn.addEventListener('click', () => {
+            gridView.classList.add('hidden');
+            listView.classList.remove('hidden');
+            listViewBtn.classList.remove('bg-gray-700');
+            listViewBtn.classList.add('bg-blue-600');
+            gridViewBtn.classList.remove('bg-blue-600');
+            gridViewBtn.classList.add('bg-gray-700');
+        });
+
+        // Initial renders
+        updateLiveInfo();
+        updateCurrentTime();
+        renderHorizontalSchedule();
+        renderVerticalSchedule();
+        
+        // Update every minute
+        setInterval(() => {
+            updateLiveInfo();
+            updateCurrentTime();
+            renderSchedule(document.getElementById('daySelector').value);
+            renderHorizontalSchedule();
+            renderVerticalSchedule();
+        }, 60000);
+
+        // Day selector change event
+        document.getElementById('daySelector').addEventListener('change', function(e) {
+            renderSchedule(e.target.value);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                nav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Add click handlers for all buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.classList.contains('md:hidden') && button.id !== 'gridViewBtn' && button.id !== 'listViewBtn') {
+                button.addEventListener('click', function() {
+                    const btnText = this.textContent.trim();
+                    if (btnText.includes('Assistir')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Iniciando transmissão ao vivo</h3>
+                                <p class="text-gray-400 mb-6">Conectando ao tnb GO...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 3000);
+                    } else if (btnText.includes('Ver Programação')) {
+                        document.querySelector('#schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (btnText.includes('App Store') || btnText.includes('Google Play')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Download do aplicativo</h3>
+                                <p class="text-gray-400 mb-6">Redirecionando para a loja de aplicativos...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 2500);
+                    }
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b2c6cf7d0030316',t:'MTc2NjU0MDc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html><!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tnb GO - Streaming Grátis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0e17;
+            color: #ffffff;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 3px;
+        }
+        .program-item {
+            transition: all 0.3s ease;
+        }
+        .program-item:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+        .live-indicator {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+        .program-card {
+            min-width: 200px;
+            max-width: 200px;
+        }
+        .program-card-live {
+            border: 2px solid #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="min-h-full flex flex-col"><!-- Header/Navbar -->
+   <header class="bg-gray-900 shadow-lg">
+    <div class="container mx-auto px-4 py-3">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center">
+       <div class="text-2xl font-bold text-blue-500"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+      </div>
+      <nav class="hidden md:flex space-x-8"><a href="#home" class="nav-item active text-white hover:text-blue-400 transition">Início</a> <a href="#live" class="nav-item text-white hover:text-blue-400 transition">Ao Vivo</a> <a href="#schedule" class="nav-item text-white hover:text-blue-400 transition">Programação</a> <a href="#shows" class="nav-item text-white hover:text-blue-400 transition">Programas</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+       <div class="relative"><input type="text" placeholder="Buscar..." class="bg-gray-800 text-white px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-3 top-2.5 text-gray-400" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+       </div><button class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg></button>
+      </div>
+     </div>
+    </div>
+   </header><!-- Main Content -->
+   <main class="flex-grow"><!-- Hero Section -->
+    <section id="home" class="relative">
+     <div class="gradient-bg py-16 md:py-24">
+      <div class="container mx-auto px-4">
+       <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+         <h1 class="text-4xl md:text-5xl font-bold mb-4">tnb GO ao vivo e de graça</h1>
+         <p class="text-lg mb-6">Assista à programação completa do tnb GO em streaming, sem custo algum e em qualquer dispositivo.</p>
+         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir Agora </button> <button class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+           </svg> Ver Programação </button>
+         </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+         <div class="relative w-full max-w-md">
+          <div class="bg-black rounded-lg overflow-hidden shadow-2xl">
+           <div class="aspect-w-16 aspect-h-9 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-80"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-80" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+             </svg>
+            </div>
+            <div class="absolute top-4 left-4 flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+             <h3 class="text-xl font-bold">tnb Notícias</h3>
+             <p class="text-sm text-gray-300">Transmitindo agora</p>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- TV ao Vivo Section -->
+    <section id="live" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">tnb GO ao Vivo</h2>
+       <div class="flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator mr-2"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span> <span id="liveStatus" class="text-gray-400 text-sm">Carregando...</span>
+       </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+       <div class="relative bg-black" style="padding-bottom: 56.25%; position: relative; width: 100%;">
+        <div class="absolute inset-0 flex items-center justify-center">
+         <div class="text-center">
+          <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">Clique para assistir ao vivo</h3>
+          <p class="text-gray-400 mt-2">Transmissão em alta definição</p>
+         </div>
+        </div>
+        <div class="absolute top-4 left-4 flex items-center">
+         <div class="bg-blue-600 text-white px-3 py-1 rounded-lg flex items-center"><span class="font-bold mr-1">tnb GO</span> <span class="w-2 h-2 bg-red-500 rounded-full live-indicator"></span>
+         </div>
+        </div>
+       </div>
+       <div class="p-4 bg-gray-800 border-t border-gray-700">
+        <div class="flex flex-col md:flex-row md:items-center justify-between">
+         <div id="liveInfo">
+          <h3 class="text-xl font-bold">Carregando...</h3>
+          <p class="text-gray-400 text-sm">Atualizando programação ao vivo</p>
+         </div>
+         <div class="flex space-x-3 mt-4 md:mt-0"><button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir </button> <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+           </svg> Compartilhar </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Programação -->
+    <section id="schedule" class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">Programação da Semana</h2>
+      <div class="bg-gray-900 rounded-lg p-4 overflow-hidden">
+       <div class="flex items-center justify-between mb-4 border-b border-gray-700 pb-4">
+        <div class="flex items-center">
+         <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3"><span class="font-bold text-sm">GO</span>
+         </div>
+         <div>
+          <h3 class="font-semibold">tnb GO</h3>
+          <p class="text-xs text-gray-400">Canal Nacional</p>
+         </div>
+        </div>
+        <div class="text-right"><select id="daySelector" class="bg-gray-800 text-white px-3 py-1 rounded text-sm border border-gray-600 focus:outline-none focus:border-blue-500"> <option value="monday">Segunda-feira</option> <option value="tuesday">Terça-feira</option> <option value="wednesday">Quarta-feira</option> <option value="thursday" selected>Quinta-feira</option> <option value="friday">Sexta-feira</option> <option value="saturday">Sábado</option> <option value="sunday">Domingo</option> </select>
+        </div>
+       </div>
+       <div id="scheduleContainer" class="space-y-2 custom-scrollbar overflow-y-auto max-h-96"></div>
+      </div>
+     </div>
+    </section><!-- Programas em Destaque -->
+    <section id="shows" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Programas em Destaque</h2><a href="#" class="text-blue-400 hover:text-blue-300 text-sm flex items-center"> Ver todos 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg></a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-900 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="newsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#newsGrad)" /> <circle cx="200" cy="150" r="80" fill="#1e3a8a" opacity="0.3" /> <rect x="120" y="180" width="160" height="60" rx="5" fill="#1e3a8a" /> <text x="200" y="215" font-family="Arial" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+           tnb
+          </text> <rect x="150" y="100" width="100" height="60" rx="8" fill="#3b82f6" /> <circle cx="180" cy="125" r="12" fill="white" /> <rect x="200" y="118" width="35" height="14" rx="2" fill="white" />
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">tnb Notícias</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-blue-600 text-white px-2 py-0.5 rounded mr-2">Jornalismo</span> <span class="text-xs text-gray-400">Todos os dias</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Informação completa e atualizada sobre os principais acontecimentos do Brasil e do mundo.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-purple-600 to-pink-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="novelaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#novelaGrad)" /> <path d="M 80 250 Q 120 150, 160 250" stroke="#a855f7" stroke-width="3" fill="none" opacity="0.4" /> <path d="M 240 250 Q 280 150, 320 250" stroke="#ec4899" stroke-width="3" fill="none" opacity="0.4" /> <circle cx="120" cy="100" r="40" fill="#fff" opacity="0.2" /> <circle cx="280" cy="120" r="50" fill="#fff" opacity="0.15" /> <path d="M 150 180 L 200 140 L 250 180 L 200 220 Z" fill="#fff" opacity="0.3" /> <text x="200" y="280" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8">
+           ♥
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Laços Quebrados</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-purple-600 text-white px-2 py-0.5 rounded mr-2">Novela</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Drama emocionante sobre família, amor e superação na busca pela felicidade.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-yellow-600 to-orange-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="showGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#d97706;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#showGrad)" /> <circle cx="100" cy="80" r="15" fill="#fef3c7" /> <circle cx="150" cy="60" r="20" fill="#fef3c7" /> <circle cx="200" cy="50" r="25" fill="#fef3c7" /> <circle cx="250" cy="60" r="20" fill="#fef3c7" /> <circle cx="300" cy="80" r="15" fill="#fef3c7" /> <polygon points="200,120 220,170 270,180 235,215 245,265 200,240 155,265 165,215 130,180 180,170" fill="#fbbf24" /> <text x="200" y="210" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+           ★
+          </text>
+         </svg>
+         <div class="absolute top-2 right-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded">
+          ESTREIA
+         </div>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Show De Prêmios tnb</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-yellow-600 text-white px-2 py-0.5 rounded mr-2">Auditório</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Programa de auditório com prêmios incríveis e muita diversão para toda a família.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-green-600 to-teal-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="varGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#varGrad)" /> <circle cx="120" cy="120" r="40" fill="#10b981" opacity="0.4" /> <circle cx="280" cy="160" r="50" fill="#14b8a6" opacity="0.4" /> <path d="M 150 200 L 180 170 L 210 200 L 240 170 L 270 200" stroke="#fff" stroke-width="4" fill="none" opacity="0.6" /> <rect x="160" y="100" width="80" height="60" rx="10" fill="#fff" opacity="0.3" /> <circle cx="200" cy="250" r="30" fill="#34d399" /> <text x="200" y="265" font-family="Arial" font-size="36" font-weight="bold" fill="white" text-anchor="middle">
+           ✓
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Facilita</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-green-600 text-white px-2 py-0.5 rounded mr-2">Variedades</span> <span class="text-xs text-gray-400">Matinais</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Dicas práticas, receitas e informações úteis para facilitar seu dia a dia.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Visualização - Estilo Oi TV -->
+    <section class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Grade de Programação - Estilo Oi TV</h2>
+       <div class="flex space-x-2"><button id="gridViewBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-blue-700"> Grade Horizontal </button> <button id="listViewBtn" class="bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-gray-600"> Lista Vertical </button>
+       </div>
+      </div><!-- Grid View - Oi TV Style -->
+      <div id="gridView" class="bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center"><span class="font-bold text-lg">GO</span>
+          </div>
+          <div>
+           <h3 class="font-bold text-lg">tnb GO</h3>
+           <p class="text-xs text-gray-400">Canal 100 • HD</p>
+          </div>
+         </div>
+         <div class="text-right">
+          <p class="text-sm text-gray-400">Agora</p>
+          <p id="currentTimeGrid" class="font-bold text-lg">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div class="overflow-x-auto custom-scrollbar">
+        <div id="horizontalSchedule" class="flex p-4 space-x-3" style="min-width: max-content;"></div>
+       </div>
+      </div><!-- List View - Traditional Style (hidden by default) -->
+      <div id="listView" class="hidden bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <h3 class="font-bold text-lg">Programação Completa - tnb GO</h3>
+         <div class="text-right">
+          <p id="currentTimeList" class="font-bold">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div id="verticalSchedule" class="p-4 space-y-2 max-h-96 overflow-y-auto custom-scrollbar"></div>
+      </div>
+     </div>
+    </section><!-- App Download Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-indigo-900">
+     <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+       <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-bold mb-4">Baixe o aplicativo tnb GO</h2>
+        <p class="text-lg mb-6 text-gray-300">Assista à programação completa do tnb GO onde e quando quiser. Disponível para todos os dispositivos.</p>
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M17.707,9.293l-5-5C12.52,4.105,12.266,4,12,4s-0.52,0.105-0.707,0.293l-5,5C5.105,9.48,5,9.734,5,10 s0.105,0.52,0.293,0.707C5.48,10.895,5.734,11,6,11s0.52-0.105,0.707-0.293L11,6.414V20c0,0.552,0.448,1,1,1s1-0.448,1-1V6.414 l4.293,4.293C17.48,10.895,17.734,11,18,11s0.52-0.105,0.707-0.293C18.895,10.52,19,10.266,19,10S18.895,9.48,17.707,9.293z" />
+          </svg> App Store </button> <button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M3,20.5V3.5C3,2.67,3.67,2,4.5,2h15C20.33,2,21,2.67,21,3.5v17c0,0.83-0.67,1.5-1.5,1.5h-15C3.67,22,3,21.33,3,20.5z M12,17 c2.76,0,5-2.24,5-5s-2.24-5-5-5s-5,2.24-5,5S9.24,17,12,17z" />
+          </svg> Google Play </button>
+        </div>
+       </div>
+       <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+         <div class="w-64 h-96 bg-black rounded-3xl border-8 border-gray-800 shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-900 opacity-90"></div>
+          <div class="absolute inset-0 flex flex-col p-4">
+           <div class="flex justify-between items-center mb-8">
+            <div class="text-lg font-bold text-white">
+             tnb GO
+            </div>
+            <div class="text-sm text-white">
+             19:45
+            </div>
+           </div>
+           <div class="flex-grow flex flex-col space-y-3">
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-24 flex items-center justify-center">
+             <div class="text-center">
+              <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-1"><span class="text-xs font-bold">AO</span>
+              </div>
+              <p class="text-xs">VIVO</p>
+             </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+            </div>
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-16"></div>
+           </div>
+           <div class="flex justify-around pt-4">
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-gray-900 py-10">
+    <div class="container mx-auto px-4">
+     <div class="flex flex-col md:flex-row justify-between">
+      <div class="mb-6 md:mb-0">
+       <div class="text-2xl font-bold text-blue-500 mb-4"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+       <p class="text-gray-400 max-w-md">Seu canal de notícias, entretenimento e informação. Assista à programação completa do tnb GO gratuitamente.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+       <div>
+        <h3 class="text-white font-semibold mb-4">Navegação</h3>
+        <ul class="space-y-2">
+         <li><a href="#home" class="text-gray-400 hover:text-blue-400 transition">Início</a></li>
+         <li><a href="#live" class="text-gray-400 hover:text-blue-400 transition">Ao Vivo</a></li>
+         <li><a href="#schedule" class="text-gray-400 hover:text-blue-400 transition">Programação</a></li>
+         <li><a href="#shows" class="text-gray-400 hover:text-blue-400 transition">Programas</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Suporte</h3>
+        <ul class="space-y-2">
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Ajuda</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">FAQ</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Contato</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Termos de Uso</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Redes Sociais</h3>
+        <div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299 c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2,22,4.6,22,7.8V16.2C22,19.4,19.4,22,16.2,22H7.8C4.6,22,2,19.4,2,16.2V7.8C2,4.6,4.6,2,7.8,2M7.6,4C5.61,4,4,5.61,4,7.6V16.4C4,18.39,5.61,20,7.6,20H16.4C18.39,20,20,18.39,20,16.4V7.6C20,5.61,18.39,4,16.4,4H7.6M17.25,5.5C17.94,5.5,18.5,6.06,18.5,6.75C18.5,7.44,17.94,8,17.25,8C16.56,8,16,7.44,16,6.75C16,6.06,16.56,5.5,17.25,5.5M12,7C14.76,7,17,9.24,17,12C17,14.76,14.76,17,12,17C9.24,17,7,14.76,7,12C7,9.24,9.24,7,12,7M12,9C10.34,9,9,10.34,9,12C9,13.66,10.34,15,12,15C13.66,15,15,13.66,15,12C15,10.34,13.66,9,12,9z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+          </svg></a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 text-sm">© 2025 tnb GO. Todos os direitos reservados.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Privacidade</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Termos</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Cookies</a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // Complete programming schedule data
+        const scheduleData = {
+            monday: [
+                { time: '00:00', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            tuesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            wednesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            thursday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            friday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            saturday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:10', title: 'Madrugada Série', category: 'Série', color: 'purple' },
+                { time: '03:10', title: 'tnb Investigação', category: 'Documentário', color: 'gray' },
+                { time: '04:30', title: 'Novo Dia News (Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '06:30', title: 'Em Notícias (Edição De Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '07:50', title: 'tnb Kids', category: 'Infantil', color: 'teal' },
+                { time: '09:35', title: 'Sábado Play', category: 'Variedades', color: 'green' },
+                { time: '11:10', title: 'tnb Esportes', category: 'Esportes', color: 'yellow' },
+                { time: '12:45', title: 'Sessão Família', category: 'Filme', color: 'red' },
+                { time: '14:55', title: 'Tarde No Capricho', category: 'Variedades', color: 'green' },
+                { time: '17:20', title: 'Smallville', category: 'Série', color: 'purple' },
+                { time: '18:30', title: 'Happy Hour', category: 'Talk Show', color: 'orange' },
+                { time: '19:15', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:50', title: 'Agora Vai', category: 'Auditório', color: 'yellow' },
+                { time: '22:15', title: 'É Nois', category: 'Entretenimento', color: 'indigo' }
+            ],
+            sunday: [
+                { time: '00:00', title: 'É Nois', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:30', title: 'tnb Docs', category: 'Documentário', color: 'gray' },
+                { time: '02:10', title: 'tnb Informa (Edição De Domingo)', category: 'Jornalismo', color: 'blue' },
+                { time: '04:00', title: 'Novo Dia News', category: 'Jornalismo', color: 'blue' },
+                { time: '06:45', title: 'Agro tnb', category: 'Rural', color: 'green' },
+                { time: '08:05', title: 'O Melhor Do Mundo', category: 'Variedades', color: 'green' },
+                { time: '09:50', title: 'Esporte tnb', category: 'Esportes', color: 'yellow' },
+                { time: '11:35', title: 'Programa Do Edu', category: 'Auditório', color: 'yellow' },
+                { time: '15:30', title: 'Beleza De Domingo', category: 'Variedades', color: 'green' },
+                { time: '17:05', title: 'Cake Boss', category: 'Reality', color: 'orange' },
+                { time: '19:10', title: 'É Show!', category: 'Entretenimento', color: 'indigo' },
+                { time: '22:50', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' }
+            ]
+        };
+
+        // Function to get current live program
+        function getCurrentProgram() {
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            const todaySchedule = scheduleData[currentDay];
+            
+            let currentProgram = null;
+            for (let i = 0; i < todaySchedule.length; i++) {
+                const [hours, minutes] = todaySchedule[i].time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                const nextProgramTime = i < todaySchedule.length - 1 
+                    ? todaySchedule[i + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    if (currentTime >= programTime && currentTime < nextTime) {
+                        currentProgram = todaySchedule[i];
+                        break;
+                    }
+                } else {
+                    if (currentTime >= programTime) {
+                        currentProgram = todaySchedule[i];
+                    }
+                }
+            }
+            
+            if (!currentProgram) {
+                currentProgram = todaySchedule[0];
+            }
+            
+            return currentProgram;
+        }
+
+        // Function to render schedule with live indicator
+        function renderSchedule(day) {
+            const container = document.getElementById('scheduleContainer');
+            const schedule = scheduleData[day];
+            
+            if (!schedule) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-8">Programação não disponível</p>';
+                return;
+            }
+            
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                if (day === currentDay) {
+                    const nextProgramTime = index < schedule.length - 1 
+                        ? schedule[index + 1].time.split(':').map(Number)
+                        : null;
+                    
+                    if (nextProgramTime) {
+                        const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                        isLive = currentTime >= programTime && currentTime < nextTime;
+                    } else {
+                        isLive = currentTime >= programTime;
+                    }
+                }
+                
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30' : ''}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-2 py-1 rounded flex items-center"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize with current day
+        const now = new Date();
+        const dayIndex = now.getDay();
+        const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        const currentDay = dayNames[dayIndex];
+        
+        document.getElementById('daySelector').value = currentDay;
+        renderSchedule(currentDay);
+
+        // Function to update live program info
+        function updateLiveInfo() {
+            const currentProgram = getCurrentProgram();
+            const liveInfoDiv = document.getElementById('liveInfo');
+            const liveStatusSpan = document.getElementById('liveStatus');
+            
+            if (liveInfoDiv && currentProgram) {
+                const now = new Date();
+                const dayIndex = now.getDay();
+                const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                const currentDayName = dayNames[dayIndex];
+                const todaySchedule = scheduleData[currentDayName];
+                const currentIndex = todaySchedule.findIndex(p => p.title === currentProgram.title);
+                const nextProgram = currentIndex < todaySchedule.length - 1 ? todaySchedule[currentIndex + 1] : null;
+                
+                const endTime = nextProgram ? nextProgram.time : '00:00';
+                
+                liveInfoDiv.innerHTML = `
+                    <h3 class="text-xl font-bold">${currentProgram.title}</h3>
+                    <p class="text-gray-400 text-sm">${currentProgram.time} - ${endTime} | ${currentProgram.category}</p>
+                `;
+            }
+            
+            if (liveStatusSpan && currentProgram) {
+                liveStatusSpan.textContent = `Agora: ${currentProgram.title}`;
+            }
+        }
+
+        // Function to update current time display
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            const gridTimeEl = document.getElementById('currentTimeGrid');
+            const listTimeEl = document.getElementById('currentTimeList');
+            
+            if (gridTimeEl) gridTimeEl.textContent = timeString;
+            if (listTimeEl) listTimeEl.textContent = timeString;
+        }
+
+        // Function to render horizontal schedule (Oi TV style)
+        function renderHorizontalSchedule() {
+            const container = document.getElementById('horizontalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                const gradients = {
+                    blue: 'from-blue-700 to-blue-900',
+                    purple: 'from-purple-700 to-purple-900',
+                    pink: 'from-pink-700 to-pink-900',
+                    yellow: 'from-yellow-600 to-orange-700',
+                    green: 'from-green-700 to-green-900',
+                    gray: 'from-gray-700 to-gray-900',
+                    orange: 'from-orange-700 to-orange-900',
+                    indigo: 'from-indigo-700 to-indigo-900',
+                    teal: 'from-teal-700 to-teal-900',
+                    red: 'from-red-700 to-red-900'
+                };
+
+                return `
+                    <div class="program-card bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 ${isLive ? 'program-card-live' : ''}">
+                        <div class="h-28 bg-gradient-to-br ${gradients[program.color] || 'from-gray-700 to-gray-900'} flex items-center justify-center p-3 relative">
+                            ${isLive ? `
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator">
+                                        <span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>
+                                        AO VIVO
+                                    </span>
+                                </div>
+                            ` : ''}
+                            <div class="text-center">
+                                <p class="text-3xl mb-1">📺</p>
+                                <p class="text-xs text-gray-300">${program.category}</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-xs text-blue-400 font-semibold mb-1">${program.time}</p>
+                            <h4 class="font-semibold text-sm leading-tight mb-2 line-clamp-2">${program.title}</h4>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs py-1.5 rounded transition">
+                                ${isLive ? 'Assistir Agora' : 'Ver Detalhes'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to render vertical schedule (traditional style)
+        function renderVerticalSchedule() {
+            const container = document.getElementById('verticalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30 border-l-4 border-red-600' : 'bg-gray-800'}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full flex items-center live-indicator"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // View toggle functionality
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+
+        gridViewBtn.addEventListener('click', () => {
+            gridView.classList.remove('hidden');
+            listView.classList.add('hidden');
+            gridViewBtn.classList.remove('bg-gray-700');
+            gridViewBtn.classList.add('bg-blue-600');
+            listViewBtn.classList.remove('bg-blue-600');
+            listViewBtn.classList.add('bg-gray-700');
+        });
+
+        listViewBtn.addEventListener('click', () => {
+            gridView.classList.add('hidden');
+            listView.classList.remove('hidden');
+            listViewBtn.classList.remove('bg-gray-700');
+            listViewBtn.classList.add('bg-blue-600');
+            gridViewBtn.classList.remove('bg-blue-600');
+            gridViewBtn.classList.add('bg-gray-700');
+        });
+
+        // Initial renders
+        updateLiveInfo();
+        updateCurrentTime();
+        renderHorizontalSchedule();
+        renderVerticalSchedule();
+        
+        // Update every minute
+        setInterval(() => {
+            updateLiveInfo();
+            updateCurrentTime();
+            renderSchedule(document.getElementById('daySelector').value);
+            renderHorizontalSchedule();
+            renderVerticalSchedule();
+        }, 60000);
+
+        // Day selector change event
+        document.getElementById('daySelector').addEventListener('change', function(e) {
+            renderSchedule(e.target.value);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                nav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Add click handlers for all buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.classList.contains('md:hidden') && button.id !== 'gridViewBtn' && button.id !== 'listViewBtn') {
+                button.addEventListener('click', function() {
+                    const btnText = this.textContent.trim();
+                    if (btnText.includes('Assistir')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Iniciando transmissão ao vivo</h3>
+                                <p class="text-gray-400 mb-6">Conectando ao tnb GO...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 3000);
+                    } else if (btnText.includes('Ver Programação')) {
+                        document.querySelector('#schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (btnText.includes('App Store') || btnText.includes('Google Play')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Download do aplicativo</h3>
+                                <p class="text-gray-400 mb-6">Redirecionando para a loja de aplicativos...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 2500);
+                    }
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b2c6cf7d0030316',t:'MTc2NjU0MDc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html><!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tnb GO - Streaming Grátis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0e17;
+            color: #ffffff;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .nav-item {
+            position: relative;
+        }
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        .nav-item:hover::after, .nav-item.active::after {
+            width: 100%;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 3px;
+        }
+        .program-item {
+            transition: all 0.3s ease;
+        }
+        .program-item:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+        .live-indicator {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% {
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.6;
+            }
+        }
+        .program-card {
+            min-width: 200px;
+            max-width: 200px;
+        }
+        .program-card-live {
+            border: 2px solid #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="min-h-full flex flex-col"><!-- Header/Navbar -->
+   <header class="bg-gray-900 shadow-lg">
+    <div class="container mx-auto px-4 py-3">
+     <div class="flex items-center justify-between">
+      <div class="flex items-center">
+       <div class="text-2xl font-bold text-blue-500"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+      </div>
+      <nav class="hidden md:flex space-x-8"><a href="#home" class="nav-item active text-white hover:text-blue-400 transition">Início</a> <a href="#live" class="nav-item text-white hover:text-blue-400 transition">Ao Vivo</a> <a href="#schedule" class="nav-item text-white hover:text-blue-400 transition">Programação</a> <a href="#shows" class="nav-item text-white hover:text-blue-400 transition">Programas</a>
+      </nav>
+      <div class="flex items-center space-x-4">
+       <div class="relative"><input type="text" placeholder="Buscar..." class="bg-gray-800 text-white px-4 py-2 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute right-3 top-2.5 text-gray-400" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+       </div><button class="md:hidden focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewbox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg></button>
+      </div>
+     </div>
+    </div>
+   </header><!-- Main Content -->
+   <main class="flex-grow"><!-- Hero Section -->
+    <section id="home" class="relative">
+     <div class="gradient-bg py-16 md:py-24">
+      <div class="container mx-auto px-4">
+       <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+         <h1 class="text-4xl md:text-5xl font-bold mb-4">tnb GO ao vivo e de graça</h1>
+         <p class="text-lg mb-6">Assista à programação completa do tnb GO em streaming, sem custo algum e em qualquer dispositivo.</p>
+         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir Agora </button> <button class="bg-gray-700 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+           </svg> Ver Programação </button>
+         </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+         <div class="relative w-full max-w-md">
+          <div class="bg-black rounded-lg overflow-hidden shadow-2xl">
+           <div class="aspect-w-16 aspect-h-9 relative">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-80"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white opacity-80" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+             </svg>
+            </div>
+            <div class="absolute top-4 left-4 flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+             <h3 class="text-xl font-bold">tnb Notícias</h3>
+             <p class="text-sm text-gray-300">Transmitindo agora</p>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- TV ao Vivo Section -->
+    <section id="live" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">tnb GO ao Vivo</h2>
+       <div class="flex items-center"><span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator mr-2"> <span class="w-2 h-2 bg-white rounded-full mr-1"></span> AO VIVO </span> <span id="liveStatus" class="text-gray-400 text-sm">Carregando...</span>
+       </div>
+      </div>
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+       <div class="relative bg-black" style="padding-bottom: 56.25%; position: relative; width: 100%;">
+        <div class="absolute inset-0 flex items-center justify-center">
+         <div class="text-center">
+          <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white">Clique para assistir ao vivo</h3>
+          <p class="text-gray-400 mt-2">Transmissão em alta definição</p>
+         </div>
+        </div>
+        <div class="absolute top-4 left-4 flex items-center">
+         <div class="bg-blue-600 text-white px-3 py-1 rounded-lg flex items-center"><span class="font-bold mr-1">tnb GO</span> <span class="w-2 h-2 bg-red-500 rounded-full live-indicator"></span>
+         </div>
+        </div>
+       </div>
+       <div class="p-4 bg-gray-800 border-t border-gray-700">
+        <div class="flex flex-col md:flex-row md:items-center justify-between">
+         <div id="liveInfo">
+          <h3 class="text-xl font-bold">Carregando...</h3>
+          <p class="text-gray-400 text-sm">Atualizando programação ao vivo</p>
+         </div>
+         <div class="flex space-x-3 mt-4 md:mt-0"><button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+           </svg> Assistir </button> <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg transition flex items-center">
+           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewbox="0 0 20 20" fill="currentColor"><path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+           </svg> Compartilhar </button>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Programação -->
+    <section id="schedule" class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-6">Programação da Semana</h2>
+      <div class="bg-gray-900 rounded-lg p-4 overflow-hidden">
+       <div class="flex items-center justify-between mb-4 border-b border-gray-700 pb-4">
+        <div class="flex items-center">
+         <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center mr-3"><span class="font-bold text-sm">GO</span>
+         </div>
+         <div>
+          <h3 class="font-semibold">tnb GO</h3>
+          <p class="text-xs text-gray-400">Canal Nacional</p>
+         </div>
+        </div>
+        <div class="text-right"><select id="daySelector" class="bg-gray-800 text-white px-3 py-1 rounded text-sm border border-gray-600 focus:outline-none focus:border-blue-500"> <option value="monday">Segunda-feira</option> <option value="tuesday">Terça-feira</option> <option value="wednesday">Quarta-feira</option> <option value="thursday" selected>Quinta-feira</option> <option value="friday">Sexta-feira</option> <option value="saturday">Sábado</option> <option value="sunday">Domingo</option> </select>
+        </div>
+       </div>
+       <div id="scheduleContainer" class="space-y-2 custom-scrollbar overflow-y-auto max-h-96"></div>
+      </div>
+     </div>
+    </section><!-- Programas em Destaque -->
+    <section id="shows" class="py-12 bg-gray-900">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Programas em Destaque</h2><a href="#" class="text-blue-400 hover:text-blue-300 text-sm flex items-center"> Ver todos 
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewbox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg></a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-blue-600 to-blue-900 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="newsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#newsGrad)" /> <circle cx="200" cy="150" r="80" fill="#1e3a8a" opacity="0.3" /> <rect x="120" y="180" width="160" height="60" rx="5" fill="#1e3a8a" /> <text x="200" y="215" font-family="Arial" font-size="28" font-weight="bold" fill="white" text-anchor="middle">
+           tnb
+          </text> <rect x="150" y="100" width="100" height="60" rx="8" fill="#3b82f6" /> <circle cx="180" cy="125" r="12" fill="white" /> <rect x="200" y="118" width="35" height="14" rx="2" fill="white" />
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">tnb Notícias</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-blue-600 text-white px-2 py-0.5 rounded mr-2">Jornalismo</span> <span class="text-xs text-gray-400">Todos os dias</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Informação completa e atualizada sobre os principais acontecimentos do Brasil e do mundo.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-purple-600 to-pink-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="novelaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#novelaGrad)" /> <path d="M 80 250 Q 120 150, 160 250" stroke="#a855f7" stroke-width="3" fill="none" opacity="0.4" /> <path d="M 240 250 Q 280 150, 320 250" stroke="#ec4899" stroke-width="3" fill="none" opacity="0.4" /> <circle cx="120" cy="100" r="40" fill="#fff" opacity="0.2" /> <circle cx="280" cy="120" r="50" fill="#fff" opacity="0.15" /> <path d="M 150 180 L 200 140 L 250 180 L 200 220 Z" fill="#fff" opacity="0.3" /> <text x="200" y="280" font-family="Arial" font-size="32" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8">
+           ♥
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Laços Quebrados</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-purple-600 text-white px-2 py-0.5 rounded mr-2">Novela</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Drama emocionante sobre família, amor e superação na busca pela felicidade.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-yellow-600 to-orange-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="showGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#d97706;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#showGrad)" /> <circle cx="100" cy="80" r="15" fill="#fef3c7" /> <circle cx="150" cy="60" r="20" fill="#fef3c7" /> <circle cx="200" cy="50" r="25" fill="#fef3c7" /> <circle cx="250" cy="60" r="20" fill="#fef3c7" /> <circle cx="300" cy="80" r="15" fill="#fef3c7" /> <polygon points="200,120 220,170 270,180 235,215 245,265 200,240 155,265 165,215 130,180 180,170" fill="#fbbf24" /> <text x="200" y="210" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">
+           ★
+          </text>
+         </svg>
+         <div class="absolute top-2 right-2 bg-yellow-500 text-xs font-bold px-2 py-1 rounded">
+          ESTREIA
+         </div>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Show De Prêmios tnb</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-yellow-600 text-white px-2 py-0.5 rounded mr-2">Auditório</span> <span class="text-xs text-gray-400">Segunda a sexta</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Programa de auditório com prêmios incríveis e muita diversão para toda a família.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+       <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 card-hover">
+        <div class="relative h-48 bg-gradient-to-br from-green-600 to-teal-600 overflow-hidden">
+         <svg class="absolute inset-0 w-full h-full" viewbox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs>
+           <lineargradient id="varGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#14b8a6;stop-opacity:1" />
+           </lineargradient>
+          </defs> <rect width="400" height="300" fill="url(#varGrad)" /> <circle cx="120" cy="120" r="40" fill="#10b981" opacity="0.4" /> <circle cx="280" cy="160" r="50" fill="#14b8a6" opacity="0.4" /> <path d="M 150 200 L 180 170 L 210 200 L 240 170 L 270 200" stroke="#fff" stroke-width="4" fill="none" opacity="0.6" /> <rect x="160" y="100" width="80" height="60" rx="10" fill="#fff" opacity="0.3" /> <circle cx="200" cy="250" r="30" fill="#34d399" /> <text x="200" y="265" font-family="Arial" font-size="36" font-weight="bold" fill="white" text-anchor="middle">
+           ✓
+          </text>
+         </svg>
+        </div>
+        <div class="p-4">
+         <h3 class="font-semibold text-lg mb-1">Facilita</h3>
+         <div class="flex items-center mb-2"><span class="text-xs bg-green-600 text-white px-2 py-0.5 rounded mr-2">Variedades</span> <span class="text-xs text-gray-400">Matinais</span>
+         </div>
+         <p class="text-sm text-gray-400 mb-3 line-clamp-2">Dicas práticas, receitas e informações úteis para facilitar seu dia a dia.</p><button class="w-full text-sm bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition">Assistir</button>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- Grade de Visualização - Estilo Oi TV -->
+    <section class="py-12 bg-gray-800">
+     <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center mb-6">
+       <h2 class="text-2xl font-bold">Grade de Programação - Estilo Oi TV</h2>
+       <div class="flex space-x-2"><button id="gridViewBtn" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-blue-700"> Grade Horizontal </button> <button id="listViewBtn" class="bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-gray-600"> Lista Vertical </button>
+       </div>
+      </div><!-- Grid View - Oi TV Style -->
+      <div id="gridView" class="bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <div class="flex items-center space-x-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center"><span class="font-bold text-lg">GO</span>
+          </div>
+          <div>
+           <h3 class="font-bold text-lg">tnb GO</h3>
+           <p class="text-xs text-gray-400">Canal 100 • HD</p>
+          </div>
+         </div>
+         <div class="text-right">
+          <p class="text-sm text-gray-400">Agora</p>
+          <p id="currentTimeGrid" class="font-bold text-lg">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div class="overflow-x-auto custom-scrollbar">
+        <div id="horizontalSchedule" class="flex p-4 space-x-3" style="min-width: max-content;"></div>
+       </div>
+      </div><!-- List View - Traditional Style (hidden by default) -->
+      <div id="listView" class="hidden bg-gray-900 rounded-lg overflow-hidden">
+       <div class="border-b border-gray-700 p-4 bg-gray-800">
+        <div class="flex items-center justify-between">
+         <h3 class="font-bold text-lg">Programação Completa - tnb GO</h3>
+         <div class="text-right">
+          <p id="currentTimeList" class="font-bold">--:--</p>
+         </div>
+        </div>
+       </div>
+       <div id="verticalSchedule" class="p-4 space-y-2 max-h-96 overflow-y-auto custom-scrollbar"></div>
+      </div>
+     </div>
+    </section><!-- App Download Section -->
+    <section class="py-16 bg-gradient-to-r from-blue-900 to-indigo-900">
+     <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+       <div class="md:w-1/2 mb-8 md:mb-0">
+        <h2 class="text-3xl font-bold mb-4">Baixe o aplicativo tnb GO</h2>
+        <p class="text-lg mb-6 text-gray-300">Assista à programação completa do tnb GO onde e quando quiser. Disponível para todos os dispositivos.</p>
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4"><button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M17.707,9.293l-5-5C12.52,4.105,12.266,4,12,4s-0.52,0.105-0.707,0.293l-5,5C5.105,9.48,5,9.734,5,10 s0.105,0.52,0.293,0.707C5.48,10.895,5.734,11,6,11s0.52-0.105,0.707-0.293L11,6.414V20c0,0.552,0.448,1,1,1s1-0.448,1-1V6.414 l4.293,4.293C17.48,10.895,17.734,11,18,11s0.52-0.105,0.707-0.293C18.895,10.52,19,10.266,19,10S18.895,9.48,17.707,9.293z" />
+          </svg> App Store </button> <button class="bg-black hover:bg-gray-900 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="currentColor" viewbox="0 0 24 24"><path d="M3,20.5V3.5C3,2.67,3.67,2,4.5,2h15C20.33,2,21,2.67,21,3.5v17c0,0.83-0.67,1.5-1.5,1.5h-15C3.67,22,3,21.33,3,20.5z M12,17 c2.76,0,5-2.24,5-5s-2.24-5-5-5s-5,2.24-5,5S9.24,17,12,17z" />
+          </svg> Google Play </button>
+        </div>
+       </div>
+       <div class="md:w-1/2 flex justify-center">
+        <div class="relative">
+         <div class="w-64 h-96 bg-black rounded-3xl border-8 border-gray-800 shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-b from-blue-600 to-indigo-900 opacity-90"></div>
+          <div class="absolute inset-0 flex flex-col p-4">
+           <div class="flex justify-between items-center mb-8">
+            <div class="text-lg font-bold text-white">
+             tnb GO
+            </div>
+            <div class="text-sm text-white">
+             19:45
+            </div>
+           </div>
+           <div class="flex-grow flex flex-col space-y-3">
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-24 flex items-center justify-center">
+             <div class="text-center">
+              <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-1"><span class="text-xs font-bold">AO</span>
+              </div>
+              <p class="text-xs">VIVO</p>
+             </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+             <div class="bg-white bg-opacity-20 rounded-lg p-2 h-20"></div>
+            </div>
+            <div class="bg-white bg-opacity-20 rounded-lg p-2 h-16"></div>
+           </div>
+           <div class="flex justify-around pt-4">
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+            <div class="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+   </main><!-- Footer -->
+   <footer class="bg-gray-900 py-10">
+    <div class="container mx-auto px-4">
+     <div class="flex flex-col md:flex-row justify-between">
+      <div class="mb-6 md:mb-0">
+       <div class="text-2xl font-bold text-blue-500 mb-4"><span class="bg-blue-500 text-white px-2 py-1 rounded">tnb</span> <span class="ml-1 text-white">GO</span>
+       </div>
+       <p class="text-gray-400 max-w-md">Seu canal de notícias, entretenimento e informação. Assista à programação completa do tnb GO gratuitamente.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+       <div>
+        <h3 class="text-white font-semibold mb-4">Navegação</h3>
+        <ul class="space-y-2">
+         <li><a href="#home" class="text-gray-400 hover:text-blue-400 transition">Início</a></li>
+         <li><a href="#live" class="text-gray-400 hover:text-blue-400 transition">Ao Vivo</a></li>
+         <li><a href="#schedule" class="text-gray-400 hover:text-blue-400 transition">Programação</a></li>
+         <li><a href="#shows" class="text-gray-400 hover:text-blue-400 transition">Programas</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Suporte</h3>
+        <ul class="space-y-2">
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Ajuda</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">FAQ</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Contato</a></li>
+         <li><a href="#" class="text-gray-400 hover:text-blue-400 transition">Termos de Uso</a></li>
+        </ul>
+       </div>
+       <div>
+        <h3 class="text-white font-semibold mb-4">Redes Sociais</h3>
+        <div class="flex space-x-4"><a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M22,3.999c-0.78,0.463-2.345,1.094-3.265,1.276c-0.027,0.007-0.049,0.016-0.075,0.023c-0.813-0.802-1.927-1.299-3.16-1.299 c-2.485,0-4.5,2.015-4.5,4.5c0,0.131-0.011,0.372,0,0.5c-3.353,0-5.905-1.756-7.735-4c-0.199,0.5-0.286,1.29-0.286,2.032 c0,1.401,1.095,2.777,2.8,3.63c-0.314,0.081-0.66,0.139-1.02,0.139c-0.581,0-1.196-0.153-1.759-0.617c0,0.017,0,0.033,0,0.051 c0,1.958,2.078,3.291,3.926,3.662c-0.375,0.221-1.131,0.243-1.5,0.243c-0.26,0-1.18-0.119-1.426-0.165 c0.514,1.605,2.368,2.507,4.135,2.539c-1.382,1.084-2.341,1.486-5.171,1.486H2C3.788,19.145,6.065,20,8.347,20 C15.777,20,20,14.337,20,8.999c0-0.086-0.002-0.266-0.005-0.447C19.995,8.534,20,8.517,20,8.499c0-0.027-0.008-0.053-0.008-0.08 c-0.003-0.136-0.006-0.263-0.009-0.329c0.79-0.57,1.475-1.281,2.017-2.091c-0.725,0.322-1.503,0.538-2.32,0.636 C20.514,6.135,21.699,4.943,22,3.999z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12,2C6.477,2,2,6.477,2,12c0,5.013,3.693,9.153,8.505,9.876V14.65H8.031v-2.629h2.474v-1.749 c0-2.896,1.411-4.167,3.818-4.167c1.153,0,1.762,0.085,2.051,0.124v2.294h-1.642c-1.022,0-1.379,0.969-1.379,2.061v1.437h2.995 l-0.406,2.629h-2.588v7.247C18.235,21.236,22,17.062,22,12C22,6.477,17.523,2,12,2z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2,22,4.6,22,7.8V16.2C22,19.4,19.4,22,16.2,22H7.8C4.6,22,2,19.4,2,16.2V7.8C2,4.6,4.6,2,7.8,2M7.6,4C5.61,4,4,5.61,4,7.6V16.4C4,18.39,5.61,20,7.6,20H16.4C18.39,20,20,18.39,20,16.4V7.6C20,5.61,18.39,4,16.4,4H7.6M17.25,5.5C17.94,5.5,18.5,6.06,18.5,6.75C18.5,7.44,17.94,8,17.25,8C16.56,8,16,7.44,16,6.75C16,6.06,16.56,5.5,17.25,5.5M12,7C14.76,7,17,9.24,17,12C17,14.76,14.76,17,12,17C9.24,17,7,14.76,7,12C7,9.24,9.24,7,12,7M12,9C10.34,9,9,10.34,9,12C9,13.66,10.34,15,12,15C13.66,15,15,13.66,15,12C15,10.34,13.66,9,12,9z" />
+          </svg></a> <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.861-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z" />
+          </svg></a>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 text-sm">© 2025 tnb GO. Todos os direitos reservados.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0"><a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Privacidade</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Termos</a> <a href="#" class="text-gray-500 hover:text-blue-400 text-sm transition">Cookies</a>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+        // Complete programming schedule data
+        const scheduleData = {
+            monday: [
+                { time: '00:00', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            tuesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            wednesday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            thursday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            friday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 'Hipócritas', category: 'Série', color: 'purple' },
+                { time: '01:20', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:45', title: 'Arquivo tnb', category: 'Documentário', color: 'gray' },
+                { time: '03:30', title: 'tnb Informa', category: 'Jornalismo', color: 'blue' },
+                { time: '05:15', title: 'tvm', category: 'Variedades', color: 'green' },
+                { time: '06:00', title: 'Em Notícia', category: 'Jornalismo', color: 'blue' },
+                { time: '07:15', title: 'Jornal Manhã Brasil', category: 'Jornalismo', color: 'blue' },
+                { time: '08:40', title: 'Facilita', category: 'Variedades', color: 'green' },
+                { time: '10:10', title: 'Pra Vc', category: 'Variedades', color: 'green' },
+                { time: '12:20', title: 'Jornal tnb', category: 'Jornalismo', color: 'blue' },
+                { time: '13:45', title: 'A Feiticeira', category: 'Série', color: 'purple' },
+                { time: '14:25', title: 'Destino De Sorte (Últimas Semanas)', category: 'Novela', color: 'pink' },
+                { time: '15:25', title: 'Show De Prêmios tnb', category: 'Auditório', color: 'yellow' },
+                { time: '16:45', title: 'Duas Caras', category: 'Novela', color: 'pink' },
+                { time: '17:45', title: 'Anna', category: 'Novela', color: 'pink' },
+                { time: '18:45', title: 'Boletim t5', category: 'Jornalismo', color: 'blue' },
+                { time: '19:10', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:10', title: 'Laços Quebrados', category: 'Novela', color: 'pink' },
+                { time: '21:10', title: 'Império Do Sol', category: 'Novela', color: 'pink' },
+                { time: '22:10', title: 'Sua Noite', category: 'Talk Show', color: 'orange' },
+                { time: '23:25', title: 'Vida E Amor', category: 'Novela', color: 'pink' }
+            ],
+            saturday: [
+                { time: '00:00', title: 'Vida E Amor', category: 'Novela', color: 'pink' },
+                { time: '00:40', title: 't5', category: 'Jornalismo', color: 'blue' },
+                { time: '02:10', title: 'Madrugada Série', category: 'Série', color: 'purple' },
+                { time: '03:10', title: 'tnb Investigação', category: 'Documentário', color: 'gray' },
+                { time: '04:30', title: 'Novo Dia News (Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '06:30', title: 'Em Notícias (Edição De Sábado)', category: 'Jornalismo', color: 'blue' },
+                { time: '07:50', title: 'tnb Kids', category: 'Infantil', color: 'teal' },
+                { time: '09:35', title: 'Sábado Play', category: 'Variedades', color: 'green' },
+                { time: '11:10', title: 'tnb Esportes', category: 'Esportes', color: 'yellow' },
+                { time: '12:45', title: 'Sessão Família', category: 'Filme', color: 'red' },
+                { time: '14:55', title: 'Tarde No Capricho', category: 'Variedades', color: 'green' },
+                { time: '17:20', title: 'Smallville', category: 'Série', color: 'purple' },
+                { time: '18:30', title: 'Happy Hour', category: 'Talk Show', color: 'orange' },
+                { time: '19:15', title: 'tnb Notícias', category: 'Jornalismo', color: 'blue' },
+                { time: '20:50', title: 'Agora Vai', category: 'Auditório', color: 'yellow' },
+                { time: '22:15', title: 'É Nois', category: 'Entretenimento', color: 'indigo' }
+            ],
+            sunday: [
+                { time: '00:00', title: 'É Nois', category: 'Entretenimento', color: 'indigo' },
+                { time: '00:30', title: 'tnb Docs', category: 'Documentário', color: 'gray' },
+                { time: '02:10', title: 'tnb Informa (Edição De Domingo)', category: 'Jornalismo', color: 'blue' },
+                { time: '04:00', title: 'Novo Dia News', category: 'Jornalismo', color: 'blue' },
+                { time: '06:45', title: 'Agro tnb', category: 'Rural', color: 'green' },
+                { time: '08:05', title: 'O Melhor Do Mundo', category: 'Variedades', color: 'green' },
+                { time: '09:50', title: 'Esporte tnb', category: 'Esportes', color: 'yellow' },
+                { time: '11:35', title: 'Programa Do Edu', category: 'Auditório', color: 'yellow' },
+                { time: '15:30', title: 'Beleza De Domingo', category: 'Variedades', color: 'green' },
+                { time: '17:05', title: 'Cake Boss', category: 'Reality', color: 'orange' },
+                { time: '19:10', title: 'É Show!', category: 'Entretenimento', color: 'indigo' },
+                { time: '22:50', title: 'tnb Classic', category: 'Entretenimento', color: 'indigo' }
+            ]
+        };
+
+        // Function to get current live program
+        function getCurrentProgram() {
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            const todaySchedule = scheduleData[currentDay];
+            
+            let currentProgram = null;
+            for (let i = 0; i < todaySchedule.length; i++) {
+                const [hours, minutes] = todaySchedule[i].time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                const nextProgramTime = i < todaySchedule.length - 1 
+                    ? todaySchedule[i + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    if (currentTime >= programTime && currentTime < nextTime) {
+                        currentProgram = todaySchedule[i];
+                        break;
+                    }
+                } else {
+                    if (currentTime >= programTime) {
+                        currentProgram = todaySchedule[i];
+                    }
+                }
+            }
+            
+            if (!currentProgram) {
+                currentProgram = todaySchedule[0];
+            }
+            
+            return currentProgram;
+        }
+
+        // Function to render schedule with live indicator
+        function renderSchedule(day) {
+            const container = document.getElementById('scheduleContainer');
+            const schedule = scheduleData[day];
+            
+            if (!schedule) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-8">Programação não disponível</p>';
+                return;
+            }
+            
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDay = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                if (day === currentDay) {
+                    const nextProgramTime = index < schedule.length - 1 
+                        ? schedule[index + 1].time.split(':').map(Number)
+                        : null;
+                    
+                    if (nextProgramTime) {
+                        const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                        isLive = currentTime >= programTime && currentTime < nextTime;
+                    } else {
+                        isLive = currentTime >= programTime;
+                    }
+                }
+                
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30' : ''}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-2 py-1 rounded flex items-center"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize with current day
+        const now = new Date();
+        const dayIndex = now.getDay();
+        const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        const currentDay = dayNames[dayIndex];
+        
+        document.getElementById('daySelector').value = currentDay;
+        renderSchedule(currentDay);
+
+        // Function to update live program info
+        function updateLiveInfo() {
+            const currentProgram = getCurrentProgram();
+            const liveInfoDiv = document.getElementById('liveInfo');
+            const liveStatusSpan = document.getElementById('liveStatus');
+            
+            if (liveInfoDiv && currentProgram) {
+                const now = new Date();
+                const dayIndex = now.getDay();
+                const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                const currentDayName = dayNames[dayIndex];
+                const todaySchedule = scheduleData[currentDayName];
+                const currentIndex = todaySchedule.findIndex(p => p.title === currentProgram.title);
+                const nextProgram = currentIndex < todaySchedule.length - 1 ? todaySchedule[currentIndex + 1] : null;
+                
+                const endTime = nextProgram ? nextProgram.time : '00:00';
+                
+                liveInfoDiv.innerHTML = `
+                    <h3 class="text-xl font-bold">${currentProgram.title}</h3>
+                    <p class="text-gray-400 text-sm">${currentProgram.time} - ${endTime} | ${currentProgram.category}</p>
+                `;
+            }
+            
+            if (liveStatusSpan && currentProgram) {
+                liveStatusSpan.textContent = `Agora: ${currentProgram.title}`;
+            }
+        }
+
+        // Function to update current time display
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+            
+            const gridTimeEl = document.getElementById('currentTimeGrid');
+            const listTimeEl = document.getElementById('currentTimeList');
+            
+            if (gridTimeEl) gridTimeEl.textContent = timeString;
+            if (listTimeEl) listTimeEl.textContent = timeString;
+        }
+
+        // Function to render horizontal schedule (Oi TV style)
+        function renderHorizontalSchedule() {
+            const container = document.getElementById('horizontalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                const gradients = {
+                    blue: 'from-blue-700 to-blue-900',
+                    purple: 'from-purple-700 to-purple-900',
+                    pink: 'from-pink-700 to-pink-900',
+                    yellow: 'from-yellow-600 to-orange-700',
+                    green: 'from-green-700 to-green-900',
+                    gray: 'from-gray-700 to-gray-900',
+                    orange: 'from-orange-700 to-orange-900',
+                    indigo: 'from-indigo-700 to-indigo-900',
+                    teal: 'from-teal-700 to-teal-900',
+                    red: 'from-red-700 to-red-900'
+                };
+
+                return `
+                    <div class="program-card bg-gray-800 rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 ${isLive ? 'program-card-live' : ''}">
+                        <div class="h-28 bg-gradient-to-br ${gradients[program.color] || 'from-gray-700 to-gray-900'} flex items-center justify-center p-3 relative">
+                            ${isLive ? `
+                                <div class="absolute top-2 left-2">
+                                    <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-full flex items-center live-indicator">
+                                        <span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>
+                                        AO VIVO
+                                    </span>
+                                </div>
+                            ` : ''}
+                            <div class="text-center">
+                                <p class="text-3xl mb-1">📺</p>
+                                <p class="text-xs text-gray-300">${program.category}</p>
+                            </div>
+                        </div>
+                        <div class="p-3">
+                            <p class="text-xs text-blue-400 font-semibold mb-1">${program.time}</p>
+                            <h4 class="font-semibold text-sm leading-tight mb-2 line-clamp-2">${program.title}</h4>
+                            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs py-1.5 rounded transition">
+                                ${isLive ? 'Assistir Agora' : 'Ver Detalhes'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Function to render vertical schedule (traditional style)
+        function renderVerticalSchedule() {
+            const container = document.getElementById('verticalSchedule');
+            const now = new Date();
+            const dayIndex = now.getDay();
+            const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+            const currentDayName = dayNames[dayIndex];
+            const currentTime = now.getHours() * 60 + now.getMinutes();
+            const schedule = scheduleData[currentDayName];
+
+            container.innerHTML = schedule.map((program, index) => {
+                const [hours, minutes] = program.time.split(':').map(Number);
+                const programTime = hours * 60 + minutes;
+                
+                let isLive = false;
+                const nextProgramTime = index < schedule.length - 1 
+                    ? schedule[index + 1].time.split(':').map(Number)
+                    : null;
+                
+                if (nextProgramTime) {
+                    const nextTime = nextProgramTime[0] * 60 + nextProgramTime[1];
+                    isLive = currentTime >= programTime && currentTime < nextTime;
+                } else {
+                    isLive = currentTime >= programTime;
+                }
+
+                return `
+                    <div class="program-item p-3 rounded-lg flex items-center ${isLive ? 'bg-blue-900/30 border-l-4 border-red-600' : 'bg-gray-800'}">
+                        <div class="w-16 text-center mr-4">
+                            <span class="text-sm font-medium">${program.time}</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="font-medium">${program.title}</h4>
+                            <p class="text-xs text-gray-400">${program.category}</p>
+                        </div>
+                        <div class="ml-4">
+                            ${isLive ? 
+                                '<span class="text-xs bg-red-600 text-white px-3 py-1 rounded-full flex items-center live-indicator"><span class="w-1.5 h-1.5 bg-white rounded-full mr-1"></span>AO VIVO</span>' :
+                                `<span class="text-xs bg-${program.color}-600 text-white px-2 py-1 rounded">${program.category}</span>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // View toggle functionality
+        const gridViewBtn = document.getElementById('gridViewBtn');
+        const listViewBtn = document.getElementById('listViewBtn');
+        const gridView = document.getElementById('gridView');
+        const listView = document.getElementById('listView');
+
+        gridViewBtn.addEventListener('click', () => {
+            gridView.classList.remove('hidden');
+            listView.classList.add('hidden');
+            gridViewBtn.classList.remove('bg-gray-700');
+            gridViewBtn.classList.add('bg-blue-600');
+            listViewBtn.classList.remove('bg-blue-600');
+            listViewBtn.classList.add('bg-gray-700');
+        });
+
+        listViewBtn.addEventListener('click', () => {
+            gridView.classList.add('hidden');
+            listView.classList.remove('hidden');
+            listViewBtn.classList.remove('bg-gray-700');
+            listViewBtn.classList.add('bg-blue-600');
+            gridViewBtn.classList.remove('bg-blue-600');
+            gridViewBtn.classList.add('bg-gray-700');
+        });
+
+        // Initial renders
+        updateLiveInfo();
+        updateCurrentTime();
+        renderHorizontalSchedule();
+        renderVerticalSchedule();
+        
+        // Update every minute
+        setInterval(() => {
+            updateLiveInfo();
+            updateCurrentTime();
+            renderSchedule(document.getElementById('daySelector').value);
+            renderHorizontalSchedule();
+            renderVerticalSchedule();
+        }, 60000);
+
+        // Day selector change event
+        document.getElementById('daySelector').addEventListener('change', function(e) {
+            renderSchedule(e.target.value);
+        });
+
+        // Mobile menu toggle
+        document.querySelector('button.md\\:hidden').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            if (nav.classList.contains('hidden')) {
+                nav.classList.remove('hidden');
+                nav.classList.add('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            } else {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex', 'flex-col', 'absolute', 'top-16', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-y-4', 'shadow-lg', 'z-50');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                document.querySelectorAll('.nav-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Add click handlers for all buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (!button.classList.contains('md:hidden') && button.id !== 'gridViewBtn' && button.id !== 'listViewBtn') {
+                button.addEventListener('click', function() {
+                    const btnText = this.textContent.trim();
+                    if (btnText.includes('Assistir')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Iniciando transmissão ao vivo</h3>
+                                <p class="text-gray-400 mb-6">Conectando ao tnb GO...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 3000);
+                    } else if (btnText.includes('Ver Programação')) {
+                        document.querySelector('#schedule').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else if (btnText.includes('App Store') || btnText.includes('Google Play')) {
+                        const modal = document.createElement('div');
+                        modal.className = 'fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4';
+                        modal.innerHTML = `
+                            <div class="bg-gray-900 rounded-lg p-6 max-w-md w-full text-center">
+                                <h3 class="text-xl font-bold mb-4">Download do aplicativo</h3>
+                                <p class="text-gray-400 mb-6">Redirecionando para a loja de aplicativos...</p>
+                                <button onclick="this.closest('.fixed').remove()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition">
+                                    Fechar
+                                </button>
+                            </div>
+                        `;
+                        document.body.appendChild(modal);
+                        setTimeout(() => modal.remove(), 2500);
+                    }
+                });
+            }
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b2c6cf7d0030316',t:'MTc2NjU0MDc5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
